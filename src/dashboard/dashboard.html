@@ -1,0 +1,32 @@
+<nav class="navbar bg-primary">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Dashboard</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a class="signout" role="button" (click)="logout()">Sign Out</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<div>
+  <div class="home jumbotron centered">
+    <h2 *ngIf="jwt">Overview</h2>
+    <!-- Create a div where the graph will take place -->
+<div #my_dataviz></div>
+    <pre *ngIf="jwt" class="jwt"><code>{{ callSecuredApi() }}</code></pre>
+    <pre *ngIf="jwt" class="jwt"><code>{{ jwt }}</code></pre>
+    <pre *ngIf="jwt" class="jwt"><code>{{ decodedJwt | json }}</code></pre>
+    <p>Click any of the buttons to call an API and get a response</p>
+    <p><a class="btn btn-primary btn-lg" role="button" (click)="callAnonymousApi()">Call Anonymous API</a></p>
+    <p><a class="btn btn-primary btn-lg" role="button" (click)="callSecuredApi()">Call Secure API</a></p>
+    <p><a class="btn btn-primary btn-lg" role="button" (click)="logout()">Logout</a></p>
+    <h2 *ngIf="response">The response of calling the <span class="red">{{ api }}</span> API is:</h2>
+    <h3 *ngIf="response">{{ response }}</h3>
+  </div>
+</div>

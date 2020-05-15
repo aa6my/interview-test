@@ -1,0 +1,16 @@
+<br>
+<br>
+<br>
+<br>
+<div class="login jumbotron center-block">
+  <h4>Sign in to your dashboard</h4>
+  <form role="form" (submit)="login($event, username.value, password.value)">
+  <div class="form-group">
+    <input type="text" #username class="form-control" id="username" placeholder="Username">
+  </div>
+  <div class="form-group">
+    <input type="password" #password class="form-control" id="password" placeholder="Password">
+  </div>
+  <button type="submit" class="btn btn-primary">SIGN IN</button>
+</form>
+</div>
